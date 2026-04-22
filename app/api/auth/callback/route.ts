@@ -27,10 +27,9 @@ export async function GET(request: NextRequest) {
 
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
-      const redirectUrl = `${process.env.NEXT_PUBLIC_APP_URL}/home`
-      return NextResponse.redirect(redirectUrl)
+      return NextResponse.redirect(`https://koup-todo-g5c6.vercel.app/home`)
     }
   }
 
-  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/login?error=auth_failed`)
+  return NextResponse.redirect(`https://koup-todo-g5c6.vercel.app/login?error=auth_failed`)
 }
